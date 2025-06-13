@@ -1,4 +1,5 @@
 from datetime import datetime 
+
 # Функція, яка розраховує кількість днів між заданою датою і поточною датою.
 def get_days_from_today(date):        
     try: 
