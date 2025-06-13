@@ -12,5 +12,25 @@ raw_numbers = [
     "38050 111 22 11   ",
 ]
 
-# normalize_phone(phone_number)
+def normalize_phone(phone_number): 
+    # Залишаємо лише цифри та +
+    standard_phone_number = re.sub(r"[^\d+]", "", phone_number)
+    # Якщо номер починається з '+'
+    if standard_phone_number.startswith('+'):
+        if standard_phone_number.startswith('+380'):
+            return standard_phone_number
+        else:
+            return standard_phone_number 
+    else:
+        # Якщо номер починається з '380' — додаємо тільки '+'
+        if standard_phone_number.startswith('380'):
+            return '+' + standard_phone_number
+        else:
+            return '+38' + standard_phone_number     # Інакше додаємо код країни '+38'
+    
+sanitized_numbers = [normalize_phone(num) for num in raw_numbers] 
+print("Нормалізовані номери телефонів для SMS-розсилки:", sanitized_numbers)
+
+
+  
 
