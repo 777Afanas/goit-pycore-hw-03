@@ -2,7 +2,7 @@ import random
 
 # Функція, що повертатє випадковий набір унікальних чисел у межах визначеного діапазону
 def get_numbers_ticket(min, max, quantity):     
-    if (min >= 1 or max <= 1000) or  (quantity > (max - min + 1)):            
+    if not (1 <= min <= max <= 1000) or quantity > (max - min + 1):     
         return []
     else:
         numeric_list = random.sample (range (min, max), quantity)
